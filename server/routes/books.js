@@ -17,6 +17,8 @@ router.get('/', (req, res) => {
         res.send(`Get books by author: ${query.author}`)
     }
 
+    const user = req.user;
+    
     res.send(`Get all books`)
 
     /*Books.find(query, (err, books) => {

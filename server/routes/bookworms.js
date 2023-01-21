@@ -15,9 +15,4 @@ router.get('/', (req, res) => {
     res.send(`Get all bookworms`)
 })
 
-//Create a new bookworm
-router.post('/', (req, res) => {
-    res.send('Create a new bookworm')
-})
-
 module.exports = router
