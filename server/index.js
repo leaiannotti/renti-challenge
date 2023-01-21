@@ -12,10 +12,12 @@ mongoose.connect(process.env.DB_URL)
 
 const db = mongoose.connection
 db.on('error', (err) => console.error(err))
+
 db.once('open',()=> {
 
     //Check if we have the collections in the database.
     //Otherwise add them
+    //Create an account for a librarian
 
 })
 
@@ -29,6 +31,6 @@ app.use('/books',booksRouter)
 app.use('/bookworms',bookwormsRouter)
 app.use('/loans',loansRouter)
 
-//Use JSON to 
+//Use JSON 
 app.use(express.json())
 app.listen(3000, () => console.log('Server started')) 
