@@ -4,8 +4,6 @@ const User = require('../models/user');
 const router = express.Router()
 require('dotenv').config()
 
-//router.use(expressJwt({ secret: process.env.JWT_SECRET, algorithms: ['sha1', 'RS256', 'HS256'] }).unless({ path: ['/auth/login', '/auth/register'] }));
-
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -18,7 +16,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).send({ message: 'Incorrect password' });
         }
         // create a JWT token
-        const token = jwt.sign({ user: user.id }, process.env.JWT_SECRET);
+        const token = jwt.sign({ user: user.id, role:user.role }, process.env.JWT_SECRET);
         // send the token to the user
         res.status(200).send({ token });
     } catch (error) {

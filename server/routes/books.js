@@ -1,8 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const {authenticateJWT,checkRole} = require('../config/middleware')
+const { LIBRARIAN_ROLE, BOOKWORM_ROLE } = require('../config/constants');
 
 //Get all the books
-router.get('/', (req, res) => {
+router.get('/', authenticateJWT, checkRole(LIBRARIAN_ROLE), (req, res) => {
     const { title, author} = req.query;
     let query = {};
     // Perform logic based on the query parameters
@@ -18,7 +20,7 @@ router.get('/', (req, res) => {
     }
 
     const user = req.user;
-    
+
     res.send(`Get all books`)
 
     /*Books.find(query, (err, books) => {

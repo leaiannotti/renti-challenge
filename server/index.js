@@ -10,6 +10,6 @@ setupDb()
 
 //Import the routing setup function
 const setupRoutes = require('./config/routes')
-setupRoutes(app)
+setupRoutes.init(app)
 
 app.listen(3000, () => console.log('Server started'))
