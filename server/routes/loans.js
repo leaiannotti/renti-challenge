@@ -1,20 +1,20 @@
 const express = require('express')
 const router = express.Router()
 
+//Get not returned books
+router.get('/non-returned', (req, res) => {
+    res.send('loans/non-returned')
+})
+
 
 //Ask if a book was borrowed (history)
 router.get('/', (req, res) => {
     res.send('loans/all')
 })
 
-//Get not returned books
-router.get('/not-returned', (req, res) => {
-    res.send('loans/non-returned')
-})
-
 //Ask if a book was borrowed
-router.get('/:id', (req, res) => {
-    res.send('loans/getbyid')
+router.get('/:bookId/borrowed', (req, res) => {
+    res.send('loans/get if was borrowed')
 })
 
 //to borrow a book, where I would send the book and user ID in the request body

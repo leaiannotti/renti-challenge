@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "start-dev": "nodemon index.js",
-    "debug": "nodemon --inspect index.js"
+    "start-dev": "nodemon server/index.js",
+    "debug": "nodemon --inspect server/index.js"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,4 @@
 #Don't persist the env vars
 .env
 node_modules
+lunch.json
