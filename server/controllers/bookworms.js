@@ -18,9 +18,9 @@ exports.getAllBookworms = (req, res) => {
                 reject(err);
             }
             if (!loan) {
-                users[0].dueToReturn = false
+                users.dueToReturn = false
             } else {
-                users[0].dueToReturn = true
+                users.dueToReturn = true
             }
         });
         res.status(200).send(users);

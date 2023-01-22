@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const BookSchema = new mongoose.Schema({
-    local_id: Number,
+    bookid: Number,
     title: String,
     author: String,
     author_id: Number,

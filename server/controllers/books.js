@@ -18,7 +18,7 @@ exports.getAllBooks = (req, res) => {
         const booksWithStatus = books.map((book) => {
             return new Promise((resolve, reject) => {
                 // Find loan with this book's ID and returned flag is false
-                Loan.findOne({ bookID: book.id, returned: false }, (err, loan) => {
+                Loan.findOne({ bookID: book.bookID, returned: false }, (err, loan) => {
                     if (err) {
                         reject(err);
                     }
@@ -45,7 +45,7 @@ exports.getAllBooks = (req, res) => {
 
 exports.getBookByID = (req, res) => {
     const id = req.params.id;
-    Book.find({id: id}, (err, book) => {
+    Book.findOne({bookid: id}, (err, book) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving book by id' });
         }
@@ -53,17 +53,17 @@ exports.getBookByID = (req, res) => {
             return res.status(400).send({ error: 'No book with that ID' });
         }
 
-        Loan.findOne({ bookID: book._id, returned: false }, (err, loan) => {
+        Loan.findOne({ bookID: book.bookID, returned: false }, (err, loan) => {
             if (err) {
                 reject(err);
             }
             if (!loan) {
-                book[0].borrowed = false
+                book.borrowed = false
             } else {
-                book[0].borrowed = true
+                book.borrowed = true
             }
         });
 
-        res.status(200).send(book[0]);
+        res.status(200).send(book);
     });
 };

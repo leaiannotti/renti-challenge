@@ -11,7 +11,7 @@ exports.getAllAuthors = (req, res) => {
 
 exports.getAuthorByID = (req, res) => {
     const id = req.params.id;
-    Author.find({id: id}, (err, author) => {
+    Author.find({authorid: id}, (err, author) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving authors by id' });
         }
@@ -24,7 +24,7 @@ exports.getAuthorByID = (req, res) => {
 
 exports.getAuthorsBio = (req, res) => {
     const id = req.params.id;
-    Author.find({id: id}, (err, author) => {
+    Author.find({authorid: id}, (err, author) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving authors by id' });
         }

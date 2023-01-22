@@ -10,7 +10,7 @@ exports.getAllLoans =  (req, res) => {
         }
         const loansFullData = loans.map((loan) => {
             return new Promise((resolve, reject) => {
-                Book.findOne({ bookID: loan.bookID }, (err, book) => {
+                Book.findOne({ bookid: loan.bookID }, (err, book) => {
                     if (err) {
                         reject(err);
                     }
@@ -47,7 +47,7 @@ exports.getNonReturned =  (req, res) => {
         }
         const loansFullData = loans.map((loan) => {
             return new Promise((resolve, reject) => {
-                Book.findOne({ bookID: loan.bookID }, (err, book) => {
+                Book.findOne({ bookid: loan.bookID }, (err, book) => {
                     if (err) {
                         reject(err);
                     }
@@ -106,7 +106,7 @@ exports.lendBooks = async (req, res) => {
         //Create an array of promises to lend each book
         const lendPromises = booksID.map(async bookID => {
             //Check if the book exists
-            const book = await Book.findOne({ bookID: bookID });
+            const book = await Book.findOne({ bookid: bookID });
             if (!book) return res.status(400).send({ error: `Invalid bookID ${bookID}` });
 
             //Create a new loan item
@@ -134,7 +134,7 @@ exports.lendBooks = async (req, res) => {
 exports.returnBook = async (req, res) => {
     const { bookID } = req.body;
     try {
-        const book = await Book.findOne({ bookID: bookID });
+        const book = await Book.findOne({ bookid: bookID });
         if (!book) return res.status(400).send({ error: `Invalid bookID ${bookID}` });
 
         const loan = await Loan.findOne({bookID: bookID, returned : false});
