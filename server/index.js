@@ -12,4 +12,4 @@ setupDb()
 const setupRoutes = require('./config/routes')
 setupRoutes.init(app)
 
-app.listen(3000, () => console.log('Server started'))
+app.listen(3030, () => console.log('Server started'))

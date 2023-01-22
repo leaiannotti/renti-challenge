@@ -137,7 +137,7 @@ exports.returnBook = async (req, res) => {
         const book = await Book.findOne({ bookID: bookID });
         if (!book) return res.status(400).send({ error: `Invalid bookID ${bookID}` });
 
-        const loan = await Loan.find({bookID: bookID, returned : false});
+        const loan = await Loan.findOne({bookID: bookID, returned : false});
         if (!loan) return res.status(400).send({ error: `The bookID ${bookID} It was not borrowed or has already been returned` });
 
         Loan.updateOne({bookID: bookID, returned : false}, { $set: { returnDate: Date.now(), returned:true } }, (err) => {
