@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 
 const LoanSchema = new mongoose.Schema({
     bookID: Number,
-    bookwormID: Number,
-    loanDate:Date,
+    username:String,
+    loanDate:{
+        type:Date,
+        default: Date.now
+    },
     returnDate: {
         type: Date,
         default: () => {
@@ -13,7 +16,10 @@ const LoanSchema = new mongoose.Schema({
         }
 
     },
-    returned: Boolean
+    returned: {
+        type:Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('Loan', LoanSchema);

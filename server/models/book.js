@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const BookSchema = new mongoose.Schema({
+    local_id: Number,
     title: String,
     author: String,
     author_id: Number,
@@ -23,7 +24,11 @@ const BookSchema = new mongoose.Schema({
     excerpt: String,
     synopsis: String,
     toc: String,
-    editorial_reviews:String
+    editorial_reviews:String,
+    borrowed:{
+        type:Boolean,
+        default:false
+    }
 });
 
 module.exports = mongoose.model('Book', BookSchema);

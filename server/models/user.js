@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+const { LIBRARIAN_ROLE, BOOKWORM_ROLE, DEFAULT_USER_FIRSTNAME,DEFAULT_USER_LASTNAME } = require('../config/constants');
 
 const UserSchema = new mongoose.Schema({
     firstName: {
         type:String,
-        default: "Default First Name" 
+        default: DEFAULT_USER_FIRSTNAME
     },
     lastName:  {
         type:String,
-        default: "Default Last Name" 
+        default: DEFAULT_USER_LASTNAME 
     },
     password:  {
         type:String,
@@ -19,8 +20,12 @@ const UserSchema = new mongoose.Schema({
     },
     role:{
         type: String,
-        default: 'Bookworm', //I'll not receive the role in the request, there is only one librarian
-        enum:['Librarian', 'Bookworm']
+        default: BOOKWORM_ROLE, //I'll not receive the role in the request, there is only one librarian
+        enum:[LIBRARIAN_ROLE, BOOKWORM_ROLE]
+    },
+    dueToReturn:{
+        type:Boolean,
+        default: false
     }
 });
 

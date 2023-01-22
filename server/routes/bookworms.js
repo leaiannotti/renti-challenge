@@ -1,18 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const {authenticateJWT,checkRole} = require('../config/middleware')
+const { LIBRARIAN_ROLE, BOOKWORM_ROLE } = require('../config/constants');
+const bookwormController = require('../controllers/bookworms')
 
 //Get all the bookworms
-router.get('/', (req, res) => {
-    const { name } = req.query;
-    let query = {};
-    // Perform logic based on the query parameters
-    if (name) {
-        // Get books by title
-        query.name = name
-        res.send(`Get bookworm by name: ${query.name}`)
-    } 
-
-    res.send(`Get all bookworms`)
+router.get('/', authenticateJWT, checkRole(LIBRARIAN_ROLE), (req, res) => {
+    bookwormController.getAllBookworms(req,res);
 })
 
 module.exports = router

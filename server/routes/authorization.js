@@ -16,7 +16,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).send({ message: 'Incorrect password' });
         }
         // create a JWT token
-        const token = jwt.sign({ user: user.id, role:user.role }, process.env.JWT_SECRET);
+        const token = jwt.sign({ user: user.id, username: user.username, role:user.role }, process.env.JWT_SECRET);
         // send the token to the user
         res.status(200).send({ token });
     } catch (error) {

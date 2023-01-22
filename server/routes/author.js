@@ -1,16 +1,23 @@
 const express = require('express')
 const router = express.Router()
+const {authenticateJWT,checkRole} = require('../config/middleware')
+const { LIBRARIAN_ROLE, BOOKWORM_ROLE } = require('../config/constants');
+const authorController = require('../controllers/authors')
 
 //Get all the authors
-router.get('/', (req, res) => {
-    
-    res.send('Get all the authors')
+router.get('/', authenticateJWT, checkRole(LIBRARIAN_ROLE), (req, res) => {
+    authorController.getAllAuthors(req,res);
 })
 
-//Get book by id
+//Get author by id
 router.get('/:id', (req, res) => {
-    res.send('Get book by id')
-
+    authorController.getAuthorByID(req,res);
 })
+
+//Get authors bio
+router.get('/:id/bio', (req, res) => {
+    authorController.getAuthorsBio(req,res);
+})
+
 
 module.exports = router
