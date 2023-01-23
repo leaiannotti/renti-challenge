@@ -1,7 +1,13 @@
 const Author = require('../models/author');
 
 exports.getAllAuthors = (req, res) => {
-    Author.find({}, (err, authors) => {
+    const { name } = req.query;
+    let query = {};
+    if(name)
+    {
+        query.title = {'$regex': name}
+    }
+    Author.find(query, (err, authors) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving all the authors' });
         }
