@@ -50,6 +50,9 @@ Due to lack of time the api is hardcoded on the front end. If you want to test i
 
 - Static HTML with JS vanilla and bootstrap.
 
+Start with the login.html
+It depends on which kind of account you log in with, it redirects you to the different start pages
+
 Sorry for the little technological stack here, I started the project in react but due to lack of time I had to leave it halfway.
 My idea was
 
@@ -82,6 +85,8 @@ I had several problems that I was solving throughout the manual tests. Some of t
 - At first I decided to do it in React, but I set out to do it in a short time. My priority was the backend, until I understood that if I didn't have a frontend there was no way to test it.
 - The functions of borrowing a book or returning it are not working correctly on the frontend
 - I decided to make a first vanilla version with bootstrap so I have something to deliver but happy to do it in React in the future.
+- The style is not as I would like, it is rather standard, just to test that the backend works
+- 
 
 ## Nice to have - future
 
