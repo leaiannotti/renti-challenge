@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 
 //Import env configuration
 if (process.env.NODE_ENV !== "production") {
