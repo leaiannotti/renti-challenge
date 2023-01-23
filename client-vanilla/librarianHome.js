@@ -13,28 +13,25 @@ function openReturnPopup(){
 
 function returnBook(){
     let bookid = bookidInput.value;
-    leturl = `https://renti-library-api.herokuapp.com/loans`;
+    let url = `https://renti-library-api.herokuapp.com/loans`;
+    let token = localStorage.getItem('token');
     fetch(url, {
+        headers: {Authorization: `Bearer ${token}`},
         method: 'PATCH',
         body: JSON.stringify({
-            bookID: bookid,
-        }),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
+            bookID: Number(bookid),
+        })
       })
       .then((response) => {
         if (response.status !== 201) {
-          return response.text().then((text) => {
-            const json = JSON.parse(text);
-            alert(json.message);
-            throw new Error(json.message);
+          return response.json().then((json) => {
+            alert(json.error);
           });
         }
         return response.json();
       })
       .then((json) => {
-        $("#returnModal").close();
+        $('#returnModal').modal('hide');
       })
       .catch((error) => {
         console.log(error);
