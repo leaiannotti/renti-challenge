@@ -13,16 +13,30 @@ exports.getAllBookworms = (req, res) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving bookworms' });
         }
-        Loan.findOne({ userID: users.id, returned: false }, (err, loan) => {
-            if (err) {
-                reject(err);
-            }
-            if (!loan) {
-                users.dueToReturn = false
-            } else {
-                users.dueToReturn = true
-            }
+        const userFullData = users.map((user) => {
+            return new Promise((resolve, reject) => {
+                Loan.findOne({ username: user.username, returned: false }, (err, loan) => {
+                    if (err) {
+                        reject(err);
+                    }
+                    if (!loan) {
+                        user.dueToReturn = false
+                    } else {
+                        user.dueToReturn = true
+                    }
+                        
+                    resolve(user)
+                })
+            });
         });
-        res.status(200).send(users);
+
+        Promise.all(userFullData)
+            .then((results) => {
+                res.status(200).json(results);
+            })
+            .catch((err) => {
+                console.log(err)
+                res.status(500).json({ error: 'Error while retrieving bookworms' });
+            });
     });
 };
