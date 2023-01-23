@@ -47,7 +47,7 @@ Due to lack of time the api is hardcoded on the front end. If you want to test i
 
 ## Architecture
 
-![arquitectura](https://github.com/)
+![arquitectura](https://github.com/leaiannotti/renti-challenge/blob/master/server/assets/renti-challeng-arch.png?raw=true)
 
 ### Frontend
 
