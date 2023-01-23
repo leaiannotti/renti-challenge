@@ -1,10 +1,10 @@
-const btnLogin = document.getElementById('btnLogin');
-btnLogin.addEventListener('click', async (event) => {
+const btnRegister = document.getElementById('btnRegister');
+btnRegister.addEventListener('click', async (event) => {
     event.preventDefault();
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     debugger;
-    fetch('http://localhost:61535/auth/login', {
+    fetch('http://localhost:61535/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -18,8 +18,4 @@ btnLogin.addEventListener('click', async (event) => {
     .catch(error => {
         alert(error.response.data.message);
     });
-});
-
-btnRegister.addEventListener('click', async (event) => {
-    window.location.href="register.html";
 });

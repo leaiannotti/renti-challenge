@@ -6,7 +6,10 @@ const cors = require('cors')
 if (process.env.NODE_ENV !== "production") {
     require("dotenv").config();
 }
-
+app.use(cors({
+    origin: '*',
+    credentials: true,
+  }));
 //Import the database connection and setup function
 const setupDb = require('./config/db')
 setupDb()
@@ -15,7 +18,7 @@ setupDb()
 const setupRoutes = require('./config/routes')
 setupRoutes.init(app)
 
-app.use(cors());
+
 
 const PORT = process.env.PORT || 61535;
 app.listen(PORT, () => {
