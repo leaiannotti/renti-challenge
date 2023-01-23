@@ -5,7 +5,7 @@ btnRegister.addEventListener('click', async (event) => {
     const password = document.getElementById('password').value;
     const firstname = document.getElementById('firstname').value;
     const lastname = document.getElementById('lastname').value;
-    fetch('http://localhost:61535/auth/register', {
+    fetch('https://renti-library-api.herokuapp.com/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

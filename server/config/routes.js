@@ -1,5 +1,4 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const authorsRouter = require('../routes/author');
 const booksRouter = require('../routes/books');

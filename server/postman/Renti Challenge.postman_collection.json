@@ -1,0 +1,526 @@
+{
+	"info": {
+		"_postman_id": "5c9355ab-0465-430a-b71f-ddca2b0ec037",
+		"name": "Renti Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8979852"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Get by title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/books?title=Francophone",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Francophone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/books?author=Kalisa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": "Kalisa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYjljZGVmMDFkYTM2ZWZjg3Nzg5Iiwicm9sZSI6IkxpYnJhcmlhbiIsImlhdCI6MTY3NDM0MTgwM30.2MYg384GF6U7XH6gKYUKkqfcj8IBOu9N9vTBgxGJdeE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/books/424",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"books",
+								"424"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "Get all the authors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjZGE5YjMzZTQ5YjkzZjgxZDVmZjM4IiwidXNlcm5hbWUiOiJsaWJyYXJpYW4iLCJyb2xlIjoiTGlicmFyaWFuIiwiaWF0IjoxNjc0NDIzMzkyfQ.D2MLr7TtCO1Jf1M-NeG4NaSGcl6_dodoRMhuJN0VGPE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/authors",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all the authors by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/authors?name=Joyce",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"authors"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Joyce"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get author by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/authors/12",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"authors",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get authors bio by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/authors/7/bio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"authors",
+								"7",
+								"bio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookworms",
+			"item": [
+				{
+					"name": "Get bookworm by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYzZmOWVmMmJjMGQ3MjViNDFmNTdlIiwicm9sZSI6IkxpYnJhcmlhbiIsImlhdCI6MTY3NDM0NTA5Mn0.sExYzYjBEONA8G6vhrzyOfFE7_aCFv6uW7zNlxV0cQo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/bookworms?name=liannotti1231",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"bookworms"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "liannotti1231"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all bookworms",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYzZmOWVmMmJjMGQ3MjViNDFmNTdlIiwicm9sZSI6IkxpYnJhcmlhbiIsImlhdCI6MTY3NDM0NTA5Mn0.sExYzYjBEONA8G6vhrzyOfFE7_aCFv6uW7zNlxV0cQo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/bookworms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"bookworms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Loans",
+			"item": [
+				{
+					"name": "Get all the loans",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYzZmOWVmMmJjMGQ3MjViNDFmNTdlIiwidXNlcm5hbWUiOiJsaWJyYXJpYW4iLCJyb2xlIjoiTGlicmFyaWFuIiwiaWF0IjoxNjc0MzU2NTAyfQ.0OSyPWKERYMIW9B7KcKs5nlFN2_yyEWwf5o4d8DWFac",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{PORT}}/loans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"loans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get non returned books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYzZmOWVmMmJjMGQ3MjViNDFmNTdlIiwidXNlcm5hbWUiOiJsaWJyYXJpYW4iLCJyb2xlIjoiTGlicmFyaWFuIiwiaWF0IjoxNjc0MzU2NTAyfQ.0OSyPWKERYMIW9B7KcKs5nlFN2_yyEWwf5o4d8DWFac",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/loans/non-returned",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"loans",
+								"non-returned"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get if a book was borrowed by book id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{PROD_HEROKU}}/loans/borrowed?bookID=1",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"loans",
+								"borrowed"
+							],
+							"query": [
+								{
+									"key": "bookID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lend Books",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYzc5Njk2NDU5NjY1MjI0YmVkYTllIiwidXNlcm5hbWUiOiJsaWFubm90dGkxIiwicm9sZSI6IkJvb2t3b3JtIiwiaWF0IjoxNjc0MzU2MjA3fQ.tCtBpIqhYpUFDO2uO9e9vqDm85qMqbAd8ut7Lf7shuQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"booksID\": [1,2],\r\n    \"returnDate\" : \"2025-10-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/loans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"loans"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return a book",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjNjYzZmOWVmMmJjMGQ3MjViNDFmNTdlIiwidXNlcm5hbWUiOiJsaWJyYXJpYW4iLCJyb2xlIjoiTGlicmFyaWFuIiwiaWF0IjoxNjc0MzU2NTAyfQ.0OSyPWKERYMIW9B7KcKs5nlFN2_yyEWwf5o4d8DWFac",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookID\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/loans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"loans"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login Librarian",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"librarian\",\r\n    \"password\" : \"librarian123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://renti-library-api.herokuapp.com/auth/login",
+							"protocol": "https",
+							"host": [
+								"renti-library-api",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Bookworm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"liannotti1\",\r\n    \"password\" : \"leandro123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{PORT}}/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Leandro\",\r\n    \"lastname\" : \"Iannotti\",\r\n    \"username\" : \"liannotti1231\",\r\n    \"password\" : \"leandro123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{PROD_HEROKU}}/auth/register",
+							"host": [
+								"{{PROD_HEROKU}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DEV",
+			"value": "http://localhost:61535",
+			"type": "string"
+		},
+		{
+			"key": "PROD_HEROKU",
+			"value": "https://renti-library-api.herokuapp.com",
+			"type": "string"
+		}
+	]
+}

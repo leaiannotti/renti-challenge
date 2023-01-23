@@ -1,7 +1,5 @@
 const express = require('express')
 const router = express.Router()
-const {authenticateJWT,checkRole} = require('../config/middleware')
-const { LIBRARIAN_ROLE, BOOKWORM_ROLE } = require('../config/constants');
 const authorController = require('../controllers/authors')
 
 //Get all the authors

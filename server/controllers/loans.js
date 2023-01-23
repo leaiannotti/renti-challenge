@@ -34,7 +34,7 @@ exports.getAllLoans =  (req, res) => {
             })
             .catch((err) => {
                 console.log(err)
-                res.status(500).json({ error: 'Error while retrieving books Loan' });
+                res.status(500).json({ error: 'Error while retrieving loans (Books)' });
             });
     })
 }
@@ -72,7 +72,7 @@ exports.getNonReturned =  (req, res) => {
             })
             .catch((err) => {
                 console.log(err)
-                res.status(500).json({ error: 'Error while retrieving books Loan' });
+                res.status(500).json({ error: 'Error while retrieving non returned loans (Books User)' });
             });
     })
 }
@@ -147,6 +147,6 @@ exports.returnBook = async (req, res) => {
           });
     } catch (err) {
         console.log(err)
-        res.status(500).json({ error: 'Error while lendBooks' });
+        res.status(500).json({ error: 'Error while returnBook' });
     }
 }

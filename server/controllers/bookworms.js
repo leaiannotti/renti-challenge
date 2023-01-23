@@ -36,7 +36,7 @@ exports.getAllBookworms = (req, res) => {
             })
             .catch((err) => {
                 console.log(err)
-                res.status(500).json({ error: 'Error while retrieving bookworms' });
+                res.status(500).json({ error: 'Error while retrieving bookworms (Loan)' });
             });
     });
 };

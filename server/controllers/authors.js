@@ -32,7 +32,7 @@ exports.getAuthorsBio = (req, res) => {
     const id = req.params.id;
     Author.findOne({authorid: id}, (err, author) => {
         if (err) {
-            return res.status(500).send({ error: 'Error while retrieving authors by id' });
+            return res.status(500).send({ error: 'Error while retrieving authors bio by id' });
         }
         if(!author){
             return res.status(400).send({ error: 'No author with that ID' });

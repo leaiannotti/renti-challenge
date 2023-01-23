@@ -38,7 +38,7 @@ exports.getAllBooks = (req, res) => {
             })
             .catch((err) => {
                 console.log(err)
-                res.status(500).json({ error: 'Error while retrieving books Loan' });
+                res.status(500).json({ error: 'Error while retrieving books (Loan)' });
             });
     });
 };

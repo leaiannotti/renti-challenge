@@ -3,6 +3,7 @@ const utils = require('./utils')
 const Book = require('../models/book');
 const Author = require('../models/author');
 const User = require('../models/user');
+const Loan = require('../models/loan');
 const path = require('path');
 
 async function createLibrarianUser(collections){
@@ -15,6 +16,18 @@ async function createLibrarianUser(collections){
             role: "Librarian"
         })
         await user.save();
+    }
+}
+
+async function createFirstLoan(collections){
+    const loanCount = await Loan.countDocuments();
+    if(!collections.includes("Loan") || loanCount == 0)
+    {
+        const loan = new Loan({
+            bookID:-1,
+            username:"null"
+        })
+        await loan.save();
     }
 }
 
@@ -43,5 +56,6 @@ module.exports = () => {
 
         //Create an account for a librarian
         createLibrarianUser(collections)
+        createFirstLoan(collections)
     })
 }
