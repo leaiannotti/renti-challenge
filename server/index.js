@@ -14,7 +14,9 @@ setupDb()
 const setupRoutes = require('./config/routes')
 setupRoutes.init(app)
 
-const PORT = process.env.PORT || 49152;
+app.use(cors());
+
+const PORT = process.env.PORT || 61535;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
