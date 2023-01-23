@@ -5,6 +5,14 @@ function showSearchBox(type) {
     document.getElementById("search-container").style.display = "block";
 }
 
+function openReturnPopup(){
+    $("#myModal").modal();
+}
+
+function returnBook(){
+    $("#myModal").modal();
+}
+
 function search() {
     let searchValue = document.getElementById("search-input").value;
     let url = "";

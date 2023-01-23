@@ -19,9 +19,9 @@ exports.getAllLoans =  (req, res) => {
                             reject(err);
                         }
                         if (book)
-                            loan.book = book
+                            loan.book = book.toJSON()
                         if (user)
-                            loan.user = user
+                            loan.user = user.toJSON()
                         resolve(loan)
                     })
                 })
@@ -56,9 +56,10 @@ exports.getNonReturned =  (req, res) => {
                             reject(err);
                         }
                         if (book)
-                            loan.book = book
+                            loan.book = book.toJSON()
                         if (user)
-                            loan.user = user
+                            loan.user = user.toJSON()
+                            
                         resolve(loan)
                     })
                 })

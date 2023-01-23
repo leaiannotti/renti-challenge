@@ -19,7 +19,9 @@ const LoanSchema = new mongoose.Schema({
     returned: {
         type:Boolean,
         default: false
-    }
+    },
+    book:Object,
+    user:Object
 });
 
 module.exports = mongoose.model('Loan', LoanSchema);

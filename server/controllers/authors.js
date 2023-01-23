@@ -17,26 +17,26 @@ exports.getAllAuthors = (req, res) => {
 
 exports.getAuthorByID = (req, res) => {
     const id = req.params.id;
-    Author.find({authorid: id}, (err, author) => {
+    Author.findOne({authorid: id}, (err, author) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving authors by id' });
         }
-        if(author.length == 0){
+        if(!author){
             return res.status(400).send({ error: 'No author with that ID' });
         }
-        res.status(200).send(author[0]);
+        res.status(200).send(author);
     });
 };
 
 exports.getAuthorsBio = (req, res) => {
     const id = req.params.id;
-    Author.find({authorid: id}, (err, author) => {
+    Author.findOne({authorid: id}, (err, author) => {
         if (err) {
             return res.status(500).send({ error: 'Error while retrieving authors by id' });
         }
-        if(author.length == 0){
+        if(!author){
             return res.status(400).send({ error: 'No author with that ID' });
         }
-        res.status(200).send(author[0].biography);
+        res.status(200).send(author.biography);
     });
 };
