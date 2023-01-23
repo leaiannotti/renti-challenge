@@ -5,7 +5,7 @@ const { LIBRARIAN_ROLE, BOOKWORM_ROLE } = require('../config/constants');
 const authorController = require('../controllers/authors')
 
 //Get all the authors
-router.get('/', authenticateJWT, checkRole(LIBRARIAN_ROLE), (req, res) => {
+router.get('/', (req, res) => {
     authorController.getAllAuthors(req,res);
 })
 
